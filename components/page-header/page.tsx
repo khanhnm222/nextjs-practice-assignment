@@ -10,9 +10,9 @@ const PageHeader = ({ title, subHeader, backgroundImage }: PageHeaderProps) => {
       <div className="flex items-center justify-center h-full w-full min-h-[400px]">
         <div className="text-center">
           <div className="site-heading">
-            <h1>{title}</h1>
-            <hr className="small" />
-            <span className="subheading">{subHeader}</span>
+            <h1 className="text-[50px]">{title}</h1>
+            <hr className="small text-white"/>
+            <span className="font-light text-[20px]">{subHeader}</span>
           </div>
         </div>
       </div>
