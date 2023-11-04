@@ -1,5 +1,6 @@
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,7 +31,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #0085A1;
+  /* color: #0085A1; */
 }
 a img:hover,
 a img:focus {
