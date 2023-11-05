@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
   const { username, password } = body
 
-  if (username !== 'admin' && password !== 'admin') {
+  if (username !== 'admin' || password !== 'admin') {
     return NextResponse.json(
       { message: 'Unauthorized' },
       { status: 401 },
