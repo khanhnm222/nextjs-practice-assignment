@@ -1,5 +1,10 @@
-import PageHeader from '@/components/page-header/page';
+'use client'
+import { Post } from '@/app/utils/models/Post';
+import PageHeader from '@/components/page-header';
+import { usePostsStore } from '@/store/Posts';
+import { useEffect, useState } from 'react';
 import styles from '../../page.module.css'
+import parse from 'html-react-parser';
 
 interface PostDetailProps {
   id: string | number;
@@ -7,16 +12,29 @@ interface PostDetailProps {
 }
 
 const PostDetail = ({ id = 1 }: PostDetailProps) => {
+  const [postDetail, setPostDetail] = useState<Post>();
+  const { posts } = usePostsStore()
+
+  useEffect(() => {
+    if (posts) {
+      const post = posts.filter(post => post.id === id)[0]
+      setPostDetail(post)
+    }
+  }, [posts, id])
+
   return (
     <>
       <PageHeader
         key={id}
-        title='Post Sample'
-        subHeader=''
-        backgroundImage='images/post-sample-image.jpg'  
+        detailPage
+        title={postDetail?.title || ''}
+        subHeader={postDetail?.subTitle || ''}
+        backgroundImage='/images/post-bg-1.jpg'
+        author={postDetail?.author || ''}
+        createdDate={postDetail?.createdDate || ''}
       />
       <main className={styles.main + ' mt-[300px]'}>
-        This is Post Sample page
+        {parse(postDetail?.description || '')}
       </main>
     </>
   );

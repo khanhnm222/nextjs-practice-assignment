@@ -1,4 +1,4 @@
-import PageHeader from '@/components/page-header/page';
+import PageHeader from '@/components/page-header';
 import styles from '../page.module.css'
 
 const Contact = () => {
