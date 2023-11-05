@@ -1,16 +1,13 @@
 
+'use client'
 import { PostSection } from '@/components'
 import PageHeader from '@/components/page-header/page'
+import { usePostsStore } from '@/store/Posts'
 import styles from './page.module.css'
+import { Post } from './utils/models/Post'
 
 export default function Home() {
-  const data = [{
-    id: 1,
-    title: 'Man must explore, and this is exploration at its greatest',
-    subTitle: 'Problems look mighty small from 150 miles up',
-    author: 'Start Bootstrap',
-    createdDate: 'September 24, 2014',
-  }]
+  const { posts } = usePostsStore()
 
   return (
     <>
@@ -22,9 +19,10 @@ export default function Home() {
       <main className={styles.main + ' mt-[300px]'}>
         <div className=''>
           <div className="col-lg-8 col-lg-offset-2 col-md-offset-1 m-auto">
-            {data && data.map(post => (
+            {posts && posts.map((post: Post) => (
               <PostSection
                 key={post.id}
+                id={post.id}
                 title={post.title}
                 author={post.author}
                 createdDate={post.createdDate}
