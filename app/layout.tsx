@@ -1,7 +1,8 @@
-import Footer from '@/components/footer/page'
-import NavigationBar from '@/components/navbar/page'
+import Footer from '@/components/footer'
+import NavigationBar from '@/components/navbar'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Toaster } from 'sonner'
 import './globals.css'
 // import 'bootstrap/dist/css/bootstrap.css'
 // import { BootstrapClient } from '@/components'
@@ -21,11 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} style={{ minHeight: '100vh' }}>
         <NavigationBar />
         {children}
         {/* <BootstrapClient /> */}
         <Footer />
+        <Toaster richColors position='top-right'/>
       </body>
     </html>
   )
