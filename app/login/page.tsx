@@ -1,9 +1,10 @@
 'use client'
 
-import axios, { AxiosError } from 'axios'
+import Information from '@/components/information'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 import styles from '../page.module.css'
-import { login } from '../utils/authentication.api'
+import { login } from '../utils/api/authentication.api'
 
 const Login = () => {
 
@@ -17,20 +18,33 @@ const Login = () => {
       password: event.currentTarget.password.value
     }
 
-    await login(payload, (data: any) => {
+    const res = await login(payload)
+    if (res?.message === 'Authenticated!') {
       // redirect
+      toast.success('Login sucessful!');
       router.back()
-    })
+      router.refresh()
+    } else {
+      toast.error('Login failed. Please double check the username or passord and try again!');
+    }
   }
 
   return (
     <>
       <main className={styles.main} >
-        <div className="flex w-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex w-full flex-1 flex-col justify-center lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="text-center text-3xl font-bold leading-9 tracking-tight text-neutral-500">
-              Sign in to your account
+              LOGIN
             </h2>
+            <br />
+          </div>
+
+          <div className='max-w-[450px] self-center'>
+            <Information
+              title='Note'
+              message='Please use the username is <b>"admin"</b> and the password is <b>"admin"</b> too in order to login the system. Thanks!'
+            />
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
@@ -72,7 +86,7 @@ const Login = () => {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-slate-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Sign in
+                  Login
                 </button>
               </div>
             </form>
