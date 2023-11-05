@@ -5,27 +5,27 @@ import { usePostsStore } from '@/store/Posts';
 import { useEffect, useState } from 'react';
 import styles from '../../page.module.css'
 import parse from 'html-react-parser';
+import { usePathname } from 'next/navigation';
 
-interface PostDetailProps {
-  id: string | number;
-  params?: any;
-}
 
-const PostDetail = ({ id = 1 }: PostDetailProps) => {
+const PostDetail = () => {
   const [postDetail, setPostDetail] = useState<Post>();
   const { posts } = usePostsStore()
+  const currentPathName = usePathname()
+
 
   useEffect(() => {
     if (posts) {
+      const id = currentPathName.substring(1)
       const post = posts.filter(post => post.id === id)[0]
       setPostDetail(post)
     }
-  }, [posts, id])
+  }, [posts, currentPathName])
 
   return (
     <>
       <PageHeader
-        key={id}
+        key={currentPathName}
         detailPage
         title={postDetail?.title || ''}
         subHeader={postDetail?.subTitle || ''}
