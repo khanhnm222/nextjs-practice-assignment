@@ -14,7 +14,8 @@ export const usePostsStore = create<PostStore>((set) => ({
       title: 'Man must explore, and this is exploration at its greatest',
       subTitle: 'Problems look mighty small from 150 miles up',
       author: 'Start Bootstrap',
-      createdDate: 'September 24, 2014'
+      createdDate: 'September 24, 2014',
+      description: ''
     }
   ],
   addPost: (newPost: any) => {
