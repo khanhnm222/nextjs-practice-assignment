@@ -11,4 +11,5 @@ export interface Post {
   subTitle?: string;
   author: string;
   createdDate: string;
+  description?: string;
 }
