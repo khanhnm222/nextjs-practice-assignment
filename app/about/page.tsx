@@ -1,8 +1,11 @@
-import PageHeader from '@/components/page-header/page';
+'use client'
+import { useState } from 'react'
+import PageHeader from '@/components/page-header';
 import Image from 'next/image';
 import styles from '../page.module.css'
 
 const About = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <PageHeader
@@ -15,7 +18,7 @@ const About = () => {
           <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
             <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
               <div className="md:5/12 lg:w-5/12">
-                <Image src="/images/blog-about.jpg" alt="image" loading="lazy" width={700} height={420} className="rounded-md"/>
+                <Image src="/images/blog-about.jpg" alt="image" loading="lazy" width={700} height={420} className="rounded-md" />
               </div>
               <div className="md:7/12 lg:w-6/12">
                 <h2 className="text-2xl text-gray-900 font-bold md:text-4xl">NextJs 13 development is carried out by passionate developers</h2>
