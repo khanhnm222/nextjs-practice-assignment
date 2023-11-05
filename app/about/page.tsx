@@ -1,4 +1,5 @@
 import PageHeader from '@/components/page-header/page';
+import Image from 'next/image';
 import styles from '../page.module.css'
 
 const About = () => {
@@ -7,16 +8,21 @@ const About = () => {
       <PageHeader
         title='About'
         subHeader='This is what I do.'
-        backgroundImage='images/about-bg.jpg'  
+        backgroundImage='images/about-bg.jpg'
       />
       <main className={styles.main + ' mt-[300px]'}>
-        <div className="container">
-          <div className="row">
-              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.</p>
+        <div className="py-16 bg-white">
+          <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+            <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
+              <div className="md:5/12 lg:w-5/12">
+                <Image src="/images/blog-about.jpg" alt="image" loading="lazy" width={700} height={420} className="rounded-md"/>
               </div>
+              <div className="md:7/12 lg:w-6/12">
+                <h2 className="text-2xl text-gray-900 font-bold md:text-4xl">NextJs 13 development is carried out by passionate developers</h2>
+                <p className="mt-6 text-gray-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem! Voluptatum tenetur beatae unde aperiam, repellat expedita consequatur! Officiis id consequatur atque doloremque!</p>
+                <p className="mt-4 text-gray-600"> Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at? Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia.</p>
+              </div>
+            </div>
           </div>
         </div>
       </main>
