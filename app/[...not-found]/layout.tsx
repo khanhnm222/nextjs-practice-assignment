@@ -1,16 +1,20 @@
-'use client'
 
-import React from "react";
 
-export default function NotFoundLayout({
+export const metadata = {
+  title: 'Not found',
+  description: 'Cannot find your pages',
+}
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-
   return (
-    <main style={{ minHeight: '100vh', marginTop: '20%' }}>
-      {children}
-    </main>
+    <html lang="en">
+      <body>
+        {children}
+      </body>
+    </html>
   )
 }
