@@ -30,8 +30,11 @@ export default function AuthLayout({
 
   return (
     <main>
-      { !isSuccess && <Spinner /> }
-      {children}
+      { !isSuccess ?
+        <Spinner /> : (
+          <>{children}</>
+        )
+      }
     </main>
   )
 }
