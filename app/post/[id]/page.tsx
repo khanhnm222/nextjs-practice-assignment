@@ -6,21 +6,25 @@ import { useEffect, useState } from 'react';
 import styles from '../../page.module.css'
 import parse from 'html-react-parser';
 import { usePathname } from 'next/navigation';
+import { PageProps } from '@/.next/types/app/page';
+import { notFound } from "next/navigation"
 
-
-const PostDetail = () => {
+const PostDetail = ({ params }: PageProps) => {
   const [postDetail, setPostDetail] = useState<Post>();
   const { posts } = usePostsStore()
   const currentPathName = usePathname()
-
+  
 
   useEffect(() => {
     if (posts) {
-      const id = currentPathName.substring(1)
-      const post = posts.filter(post => post.id === id)[0]
-      setPostDetail(post)
+      const post = posts.filter(post => post.id == params.id)[0]
+      if (!post) {
+        notFound()	
+      } else {
+        setPostDetail(post)
+      }
     }
-  }, [posts, currentPathName])
+  }, [posts, params])
 
   return (
     <>
@@ -33,8 +37,16 @@ const PostDetail = () => {
         author={postDetail?.author || ''}
         createdDate={postDetail?.createdDate || ''}
       />
-      <main className={styles.main + ' mt-[300px]'}>
-        {parse(postDetail?.description || '')}
+      <main className={styles.main + ' mt-[300px] md:mt-[550px] lg:mt-[500px]'}>
+        <article>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 m-auto">
+                {parse(postDetail?.description || '')}
+              </div>
+            </div>
+          </div>
+        </article>
       </main>
     </>
   );
