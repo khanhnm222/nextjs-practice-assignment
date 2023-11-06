@@ -1,5 +1,5 @@
 'use client'
-
+import React from 'react'
 import Information from '@/components/information'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
