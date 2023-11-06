@@ -5,7 +5,7 @@ interface UserStore {
   updateUser: (newUserInfo: any) => void;
 }
 
-export const usePostsStore = create<UserStore>((set) => ({
+export const useUserStore = create<UserStore>((set) => ({
   userInfo: {
     id: 1,
     username: 'Admin'
