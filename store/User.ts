@@ -1,3 +1,4 @@
+import { createJSONStorage, persist } from 'zustand/middleware';
 import { create } from "zustand"
 
 interface UserStore {
@@ -5,14 +6,19 @@ interface UserStore {
   updateUser: (newUserInfo: any) => void;
 }
 
-export const useUserStore = create<UserStore>((set) => ({
-  userInfo: {
-    id: 1,
-    username: 'Admin'
-  },
-  updateUser: (newUserInfo: any) => {
-    set((state: any) => {
-      return { userInfo: {...newUserInfo} };
-    });
-  }
-}))
+export const useUserStore = create<UserStore>()(
+  persist(
+    (set) => ({
+      userInfo: null,
+      updateUser: (newUserInfo: any) => {
+        set((state: any) => {
+          return { userInfo: newUserInfo ? {...newUserInfo}: null };
+        });
+      }
+    }),
+    {
+      name: 'post-storage',
+      storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+)
