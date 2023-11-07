@@ -14,7 +14,7 @@ const Contact = () => {
       <PageHeader
         title='Contact'
         subHeader='Have questions? I have answers (maybe)'
-        backgroundImage='/images/contact-bg-1.jpg'
+        backgroundImage='/images/contact-bg-2.jpg'
       />
       <main className={styles.main + " mt-[250px]"} >
         <div className="container mt-24 mx-auto md:px-6">
