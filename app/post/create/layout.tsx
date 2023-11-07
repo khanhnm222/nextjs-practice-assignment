@@ -2,7 +2,7 @@
 
 import Spinner from "@/components/spinner";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { getUser } from  "@/app/utils/api/user.api";
 
 export default function AuthLayout({
@@ -13,7 +13,7 @@ export default function AuthLayout({
   const router = useRouter()
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     (async () => {
       const { user, error } = await getUser()
 
