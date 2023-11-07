@@ -20,7 +20,8 @@ export async function GET() {
   try {
     verify(value, secret)
     const respone = {
-      user: 'Secret User'
+      user: 'Secret User',
+      isAuthenticated: true,
     }
     return new Response(JSON.stringify(respone), {
       status: 200,

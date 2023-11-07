@@ -35,6 +35,7 @@ export async function POST(request: Request) {
   })
 
   const respone = {
+    username: username,
     message: 'Authenticated!'
   }
 
