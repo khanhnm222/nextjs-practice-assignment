@@ -47,7 +47,7 @@ const Login = () => {
 
           <div className='max-w-[450px] self-center'>
             <Information
-              title='Note'
+              title='Attention'
               message='Please use the username is <b>"admin"</b> and the password is <b>"admin"</b> too in order to login the system. Thanks!'
             />
           </div>
