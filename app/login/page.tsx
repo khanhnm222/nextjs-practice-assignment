@@ -5,10 +5,11 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import styles from '../page.module.css'
 import { login } from '../utils/api/authentication.api'
+import { useUserStore } from '@/store/User'
 
 const Login = () => {
-
   const router = useRouter()
+  const { updateUser } = useUserStore()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -20,6 +21,10 @@ const Login = () => {
 
     const res = await login(payload)
     if (res?.message === 'Authenticated!') {
+      updateUser({
+        name: res.username,
+        isAuthenticated: true
+      })
       // redirect
       toast.success('Login sucessful!');
       router.back()
