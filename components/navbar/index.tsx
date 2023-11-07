@@ -5,12 +5,15 @@ import { useRouter, usePathname } from 'next/navigation'
 import { logout } from "@/app/utils/api/authentication.api";
 import { getUser } from "@/app/utils/api/user.api";
 import { toast } from "sonner";
+import { useUserStore } from "@/store/User";
 
 const NavigationBar = () => {
   const router = useRouter()
   const currentPathName = usePathname()
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { userInfo, updateUser } = useUserStore()
 
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,10 +27,13 @@ const NavigationBar = () => {
     return currentPathName &&  currentPathName === '/login';
   }, [currentPathName])
 
+  const isAuthenticated = useCallback(() => {
+    return isSuccess
+  }, [isSuccess])
+
   useEffect(() => {
     (async () => {
       const { user, error } = await getUser()
-
       if (error) {
         setIsSuccess(false)
       }
@@ -35,7 +41,7 @@ const NavigationBar = () => {
         setIsSuccess(true)
       }
     }) ()
-  }, [])
+  }, [userInfo])
 
   const handleLoginAndLogout = async () => {
     if (isSuccess) {
@@ -45,14 +51,14 @@ const NavigationBar = () => {
       const response = await logout(payload)
       if (response) {
         if (!isLoginPage()) {
+          updateUser(null)
+          setIsSuccess(false)
           toast.success('Logout sucessful!');
-          router.refresh()
           router.push('/login')
         }
       }
     } else {
       if (!isLoginPage()) {
-        router.refresh()
         router.push('/login')
       }
     }
@@ -113,7 +119,7 @@ const NavigationBar = () => {
                   data-te-ripple-init
                   onClick={handleLoginAndLogout}
                 >
-                  {isSuccess ? 'LOGOUT' : 'LOGIN'}
+                  {isAuthenticated() ? 'LOGOUT' : 'LOGIN'}
                 </button>
               </li>
             </ul>
@@ -152,7 +158,7 @@ const NavigationBar = () => {
                     closeMenuOpen()
                   }}
                 >
-                  {isSuccess ? 'LOGOUT' : 'LOGIN'}
+                  {isAuthenticated() ? 'LOGOUT' : 'LOGIN'}
                 </button>
               </li>
             </ul>
