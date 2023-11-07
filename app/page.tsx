@@ -15,10 +15,10 @@ export default function Home() {
       <PageHeader
         title='Clean Blog'
         subHeader='A Clean Blog Theme by Start Bootstrap'
-        backgroundImage='/images/home-bg.jpg'
+        backgroundImage='/images/home-bg-1.jpg'
       />
       <main className={styles.main + ' mt-[300px]'}>
-        <div className=''>
+        <div>
           <div className="col-lg-10 col-lg-offset-2 col-md-offset-1 m-auto">
             {!posts && <Spinner />}
             {posts && posts.map((post: Post) => (

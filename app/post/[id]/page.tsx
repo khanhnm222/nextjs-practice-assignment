@@ -33,7 +33,7 @@ const PostDetail = ({ params }: PageProps) => {
         detailPage
         title={postDetail?.title || ''}
         subHeader={postDetail?.subTitle || ''}
-        backgroundImage='/images/post-bg-1.jpg'
+        backgroundImage='/images/post-bg-2.jpg'
         author={postDetail?.author || ''}
         createdDate={postDetail?.createdDate || ''}
       />

@@ -12,7 +12,6 @@ const CreatePost = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log('form', event);
 
     const payload = {
       subTitle: event.currentTarget.subTitle.value,
@@ -32,7 +31,7 @@ const CreatePost = () => {
       <PageHeader
         title='Create Post'
         subHeader=''
-        backgroundImage='/images/detail-post-bg.jpg'
+        backgroundImage='/images/create-post-bg.jpg'
       />
       <main className={styles.main + ' max-h-[100vh !important] mt-[300px]'}>
         <div className="container mx-auto md:px-6">

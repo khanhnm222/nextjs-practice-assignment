@@ -1,17 +1,14 @@
-'use client'
-import { useState } from 'react'
 import PageHeader from '@/components/page-header';
 import Image from 'next/image';
 import styles from '../page.module.css'
 
 const About = () => {
-  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <PageHeader
         title='About'
         subHeader='This is what I do.'
-        backgroundImage='images/about-bg.jpg'
+        backgroundImage='/images/about-bg-1.jpg'
       />
       <main className={styles.main + ' mt-[300px]'}>
         <div className="py-16 bg-white">
