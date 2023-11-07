@@ -32,7 +32,7 @@ const PageHeader = ({
       ) : (
         <>
           {title && (
-            <header className="intro-header absolute top-0 z-0 w-full bg-cover bg-center min-h-[400px] text-white" style={{ backgroundImage: `url(${backgroundImage})` }}>
+            <header className="intro-header absolute top-0 z-0 w-full bg-cover bg-center min-h-[400px] max-h-[560px] text-white" style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 m-auto">

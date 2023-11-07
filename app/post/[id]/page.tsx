@@ -6,8 +6,16 @@ import { useEffect, useState } from 'react';
 import styles from '../../page.module.css'
 import parse from 'html-react-parser';
 import { usePathname } from 'next/navigation';
-import { PageProps } from '@/.next/types/app/page';
 import { notFound } from "next/navigation"
+
+type PageProps = {
+  params: {
+    id?: string;
+  };
+  searchParams: {
+    search?: string;
+  };
+};
 
 const PostDetail = ({ params }: PageProps) => {
   const [postDetail, setPostDetail] = useState<Post>();
