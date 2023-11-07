@@ -21,12 +21,13 @@ export default function Home() {
         <div>
           <div className="col-lg-10 col-lg-offset-2 col-md-offset-1 m-auto">
             {!posts && <Spinner />}
-            {posts && posts.map((post: Post) => (
+            {posts && posts.map((post: Post, index) => (
               <PostSection
                 key={post.id}
                 id={post.id}
                 title={post.title}
                 author={post.author}
+                isNew={index === 0}
                 createdDate={post.createdDate}
               />
             ))}

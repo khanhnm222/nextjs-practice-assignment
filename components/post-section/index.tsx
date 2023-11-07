@@ -1,4 +1,5 @@
 import { Post } from "@/app/utils/models/Post"
+import LabelTag from "../label-tag"
 
 const PostSection = ({
   id,
@@ -6,6 +7,7 @@ const PostSection = ({
   subTitle,
   author,
   createdDate,
+  isNew,
 }: Post) => {
 
   return (
@@ -19,7 +21,12 @@ const PostSection = ({
             {subTitle}
           </h3>
         </a>
-        <p className="post-meta">Posted by <a href="#">{author}</a> on {createdDate}</p>
+        <div className="post-meta flex justify-between items-center mb-[-20px]">
+          <p>Posted by <b>{author}</b> on {createdDate}</p>
+          {isNew ? (
+            <LabelTag name='New post' />
+          ) : null}
+        </div>
       </div>
       <hr></hr>
     </>
