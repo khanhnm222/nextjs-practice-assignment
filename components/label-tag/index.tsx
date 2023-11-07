@@ -4,7 +4,7 @@ interface LabelTagProps {
 
 const LabelTag = ({ name }: LabelTagProps) => {
   return (
-    <div>
+    <div className="min-w-[120px]">
       <div className="inline-block relative py-1 text-md">
         <div className="absolute inset-0 text-green-200 flex">
           <svg height="100%" viewBox="0 0 50 100">
