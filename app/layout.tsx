@@ -27,7 +27,7 @@ export default function RootLayout({
         {children}
         {/* <BootstrapClient /> */}
         <Footer />
-        <Toaster richColors position='top-right'/>
+        <Toaster richColors position='top-right' closeButton />
       </body>
     </html>
   )
