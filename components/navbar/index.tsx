@@ -112,6 +112,9 @@ const NavigationBar = () => {
                   CREATE POSTS
                 </Link>
               </li>
+              {isAuthenticated() ? (
+                <div className="text-white italic underline underline-offset-4">Hello <span>{userInfo?.name}</span> !</div>
+              ) : null}
               <li className="block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-[16px]">
                 <button
                   type="button"
@@ -148,6 +151,9 @@ const NavigationBar = () => {
                   CREATE POSTS
                 </Link>
               </li>
+              {isAuthenticated() ? (
+                <div className="h-[60px] text-brand-grey-300 italic underline underline-offset-4">Hello <span>{userInfo?.name}</span> !</div>
+              ) : null}
               <li className="block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-[16px]">
                 <button
                   type="button"
