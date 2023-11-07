@@ -3,10 +3,11 @@ import { UserResponse } from "../models/UserModel"
 
 export async function getUser(): Promise<UserResponse> {
   try {
-    const { data } = await axios.get('api/auth/me')
+    const { data } = await axios.get('/api/auth/me')
 
     return {
       user: data,
+      isAuthenticated: data.isAuthenticated,
       error: null
     }
   } catch (error) {
@@ -14,6 +15,7 @@ export async function getUser(): Promise<UserResponse> {
 
     return {
       user: null,
+      isAuthenticated: false,
       error: errors
     }
   }
