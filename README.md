@@ -14,7 +14,6 @@ Using Pages Router or App Router is up to you
 Submission:
 Commit code to personal repository
 Build and deploy project to Vercel server: https://vercel.com/
-Send email to hoantrant1@nashtechglobal.com with subject [NextJS Fundamentals – Assignment] by 10th Nov 2023 with app domain on Vercel and Github repo link
 
 ## Result
 Home page:
