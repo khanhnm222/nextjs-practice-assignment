@@ -16,6 +16,13 @@ Commit code to personal repository
 Build and deploy project to Vercel server: https://vercel.com/
 Send email to hoantrant1@nashtechglobal.com with subject [NextJS Fundamentals – Assignment] by 10th Nov 2023 with app domain on Vercel and Github repo link
 
+## Result
+Home page:
+![image](https://github.com/user-attachments/assets/78116a94-803d-464f-9e5a-d843e4534e50)
+
+Login page:
+![image](https://github.com/user-attachments/assets/35c5a895-0059-4dac-8e07-e1b989e077d9)
+
 ## Getting Started
 
 First, run the development server:
